@@ -1,10 +1,15 @@
 import React from 'react';
-
+import './loader.scss';
 const Loader = () =>{
    return( 
-        <div>
-            <p>LOADING....</p>
-        </div>
+            <div className="revolver">
+            <section className="revolver__part"></section>
+            <section className="revolver__part"></section>
+            <section className="revolver__part"></section>
+            <section className="revolver__part"></section>
+            <section className="revolver__part"></section>
+            <section className="revolver__part"></section>
+            </div>       
    )
 }
 

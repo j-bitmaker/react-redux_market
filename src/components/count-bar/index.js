@@ -1,41 +1,30 @@
 import React from 'react';
 
-const CountBar = () =>{
+const CountBar = ({countOfItems, total }) =>{
     return(
         <div className="shopping-cart-table">
         <h2>Your Order</h2>
         <table className="table">
-          <thead>
-            <th>#</th>
-            <th>Item</th>
-            <th>Count</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </thead>
-  
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Site Reliability Engineering</td>
-              <td>2</td>
-              <td>$40</td>
+          <tr>
+  
+            <th>Count</th>
+            <th>Total</th>
+            <th>Push</th>
+          </tr>
+  
+          <tr>
+             
+              <td>{countOfItems}</td>
+              <td>${total}</td>
               <td>
-                <button className="btn btn-outline-danger btn-sm float-right">
-                  <i className="fa fa-trash-o" />
-                </button>
-                <button className="btn btn-outline-success btn-sm float-right">
-                  <i className="fa fa-plus-circle" />
-                </button>
-                <button className="btn btn-outline-primary btn-sm float-right">
-                  <i className="fa fa-minus-circle" />
-                </button>
+                <input className='btn btn-primary'type="button" value="Confirm Order"/>
               </td>
-            </tr>
+          </tr>
           </tbody>
         </table>
   
         <div className="total">
-          Total: $201
         </div>
       </div>
     )

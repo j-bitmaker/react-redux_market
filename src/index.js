@@ -5,13 +5,14 @@ import { Provider } from 'react-redux';
 import App from './components/app';
 import Error from './components/error';
 import MarketService from './services';
-import { ServiceProvider } from './components/context';
+import { ServiceProvider } from './containers/context';
 import store from './store';
 
 
 const marketService = new MarketService();
 
 ReactDOM.render(
+   
 <Provider store={store}>
     <Error>
         <ServiceProvider value={marketService}>

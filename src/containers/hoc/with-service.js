@@ -2,18 +2,14 @@ import React from 'react';
 import { ServiceConsumer } from '../context';
 
 const withService = () => (Child) => {
-    return (props) => {
-        return(
+    return props => (
             <ServiceConsumer>
             {
-                (marketService) => {
-                    return (<Child {...props} 
-                        marketService={marketService}/>)
-                }
+                marketService => (<Child {...props} 
+                    marketService={marketService}/>)   
             }
             </ServiceConsumer>
         )
-    }
 }
 
 export default withService;

@@ -1,5 +1,6 @@
 import PageHome from './page-home';
-import PageBask from './page-bask';
+import PageCart from './page-cart';
+import PageHelp from './page-help';
 export {
-    PageHome, PageBask
+    PageHome, PageCart, PageHelp
 }

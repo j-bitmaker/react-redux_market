@@ -6,10 +6,10 @@ const AppHeader = () =>{
     <div className='app-header'>
         <span>
             <h1>
-                World of Notes
+                World of Laptops
             </h1>
             <h5>
-                Market of best notebooks!
+                Market of best laptops and details!
             </h5>
         </span>
     </div>

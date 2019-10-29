@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'; 
 import './nav-bar.css'
 
-const NavBar = ({countOfItems, sortLaptop, sortSSD, sortDocking, sortRAM, searchItems}) =>{
+const NavBar = ({countOfItems, sortLaptop, sortSSD, sortDocking, sortRAM, searchItems, sortAll}) =>{
 
     return(
     <div>
@@ -29,6 +29,8 @@ const NavBar = ({countOfItems, sortLaptop, sortSSD, sortDocking, sortRAM, search
               <Link to='./' className="dropdown-item" onClick={sortSSD}>SSD</Link>
               <Link to='./' className="dropdown-item" onClick={sortDocking}>Docing stations</Link>
               <Link to='./' className="dropdown-item" onClick={sortRAM}>RAM</Link>
+              <div className="dropdown-divider"></div>
+              <Link to='./' className="dropdown-item" onClick={sortAll}>All</Link>
             </div>
           </li>
           <li>

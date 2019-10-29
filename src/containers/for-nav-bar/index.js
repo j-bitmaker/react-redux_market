@@ -1,8 +1,8 @@
 import React from 'react';
 import NavBar from '../../components/nav-bar';
-import {sortLaptop, sortSSD, sortRAM, sortDocking, searchItems} from '../../actions';
+import {sortLaptop, sortSSD, sortRAM, sortDocking, searchItems, sortAll} from '../../actions';
 import {connect} from 'react-redux';
-const ForNavBar = ({cart, sortDocking, sortLaptop, sortSSD, sortRAM, searchItems}) =>{
+const ForNavBar = ({cart, sortDocking, sortLaptop, sortSSD, sortRAM, searchItems, sortAll}) =>{
 
     return(
         <NavBar 
@@ -12,6 +12,7 @@ const ForNavBar = ({cart, sortDocking, sortLaptop, sortSSD, sortRAM, searchItems
         sortSSD={sortSSD}
         sortLaptop={sortLaptop}
         searchItems={searchItems}
+        sortAll={sortAll}
         />
     )
 }
@@ -26,7 +27,8 @@ const mapDispatchToProps = dispatch =>{
     sortLaptop: ()=>dispatch(sortLaptop()),
     sortRAM: ()=>dispatch(sortRAM()),
     sortDocking: ()=>dispatch(sortDocking()),
-    sortSSD: ()=>dispatch(sortSSD())
+    sortSSD: ()=>dispatch(sortSSD()),
+    sortAll: ()=> dispatch(sortAll())
     }
 
 }

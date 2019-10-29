@@ -58,6 +58,12 @@ const decInCart = (id) =>{
     }
 }
 
+const sortAll = () =>{
+    return {
+        type: 'SORT_ALL',
+    }
+}
+
 const sortLaptop = () =>{
     return {
         type: 'SORT_LAPTOP'
@@ -96,5 +102,5 @@ const fetchItemsFromService = (marketService, dispatch) => () =>{
         //basic function for dispatching 
 export  {fetchItemsFromService, itemLoaded, addItem, deleteItem, 
     inc, dec, incInCart, decInCart, sortDocking, 
-    sortLaptop, sortRAM, sortSSD, searchItems}
+    sortAll, sortLaptop, sortRAM, sortSSD, searchItems}
     

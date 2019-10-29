@@ -10,14 +10,15 @@ const reducer = (state = init, action) => {
 
     const {items, cart, copy} = state;
     const {payload} = action;
-    const foundItem = items.find(i=>i.id===action.payload),
-    foundСartItem = cart.find(i=>i.id===action.payload),
+    const foundItem = items.find(i=>i.id===payload),
+    foundCartItem = cart.find(i=>i.id===payload),
+    cartIndex = cart.indexOf(foundCartItem),
     firstItems = items.slice(0, payload-1),
     lastItems = items.slice(payload, items.length),
-    firstCartItems = cart.slice(0, payload-1),
-    lastCartItems = cart.slice(payload, cart.length),
+    firstCartItems = cart.slice(0, cartIndex),
+    lastCartItems = cart.slice(cartIndex+1, cart.length),
     newItem = {...foundItem},
-    newCartItem = {...foundСartItem};
+    newCartItem = {...foundCartItem};
     const sorted = category => copy.filter(i=>i.type===category); //func for sorting items by category
 
     switch(action.type){
@@ -63,7 +64,7 @@ const reducer = (state = init, action) => {
             items: [...firstItems, newItem, ...lastItems]
             };
         case 'DEC_IN_CART':
-            if (foundСartItem.count>1){
+            if (foundCartItem.count>1){
             newCartItem.count--
             newCartItem.price -= newItem.price
         } return {
@@ -75,6 +76,10 @@ const reducer = (state = init, action) => {
         case 'INC_IN_CART':
             newCartItem.count++
             newCartItem.price += newItem.price
+            console.log(firstCartItems)
+            console.log(lastCartItems)
+            console.log(payload)
+            console.log(cartIndex)
         return {
             ...state, 
             error: null,
@@ -82,7 +87,7 @@ const reducer = (state = init, action) => {
             cart: [...firstCartItems, newCartItem, ...lastCartItems]
             };
         case 'ADD_ITEM':
-            const idxCart = cart.indexOf(foundСartItem);
+            const idxCart = cart.indexOf(foundCartItem);
             const idxItems = items.indexOf(foundItem);
             if (idxCart ===-1) {
                 const itemForAdd = {...foundItem}
@@ -107,6 +112,11 @@ const reducer = (state = init, action) => {
             return{
                 ...state,
                 cart: [...cart.slice(0, idx), ...cart.slice(idx+1, cart.length)]
+            };
+        case 'SORT_ALL':
+            return{
+                ...state,
+                items: copy
             }
         case 'SORT_LAPTOP':
             return{

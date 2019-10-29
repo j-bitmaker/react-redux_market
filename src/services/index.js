@@ -127,8 +127,7 @@
             setTimeout(()=>{
                 resolve(this.data);
                 reject(new Error("Sory, but it's ERROR!"))
-            }, 0);
-            console.log(this.data)
+            }, 3000);
         });
      }
     

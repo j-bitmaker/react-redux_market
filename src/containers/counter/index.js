@@ -5,13 +5,13 @@ const Counter = ({count, inc, dec}) =>{
 
     return(
        <div className='row counter'>
-           <div className='col'>
+           <div>
                <button onClick={dec} className='btn btn-outline-primary btn-sm'><i className="fa fa-minus-circle minus"></i></button>
            </div>
-           <div className='col'>
+           <div>
                 <h5>{count}</h5>
            </div>
-           <div className='col'>
+           <div>
            <button
             onClick={inc}
             className="btn btn-outline-warning btn-sm">

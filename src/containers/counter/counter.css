@@ -1,4 +1,6 @@
 
 .counter{
+    display: flex;
+    justify-content: space-around;
     width: 174px
 }

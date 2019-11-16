@@ -1,12 +1,16 @@
+
 .main{
-    width: 800px
-}
-.main{
-    margin-top: 40px
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    align-items: start;
 }
 .add{
-    margin-top: 30px
+    margin-top: 25px;
+    max-width: 140px
 }
-.count{
-    margin-top: 10px
+.item{
+    display: flex;
+    flex-wrap: flex;
+    justify-content: space-around;
 }

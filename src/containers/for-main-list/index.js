@@ -1,6 +1,7 @@
 
 import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 import { withService } from '../hoc';
 import {fetchItemsFromService, addItem, inc, dec} from '../../actions';
@@ -32,13 +33,13 @@ const mapStateToProps = ({items, load, err}) => {
     return {items, load, err};
 }
 const mapDispatchToProps = (dispatch, {marketService}) =>{
-    return { 
-        fetchItems: fetchItemsFromService(marketService, dispatch),
-        callAdd: id => {dispatch(addItem(id))},
-        dec: id => {dispatch(dec(id))},
-        inc: id => {dispatch(inc(id))}
-}
-}
+    return bindActionCreators({ 
+        fetchItems: fetchItemsFromService(marketService),
+        callAdd: addItem,
+        dec: dec,
+        inc: inc
+}, dispatch);
+};
 //This object is shorthened implementation of fucntion bindActionCrators
 const childConnect = connect(mapStateToProps, mapDispatchToProps)(ForMainList);
 //firstly, wrapp item-list component in context-function for connecting with redux;

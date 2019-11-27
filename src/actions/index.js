@@ -93,7 +93,7 @@ const searchItems = (val) =>{
 }
 
 
-const fetchItemsFromService = (marketService, dispatch) => () =>{
+const fetchItemsFromService = (marketService) => () => (dispatch) =>{
                 dispatch(loading());
                 marketService.getItem()
                 .then((data)=> {console.log(data); return dispatch(itemLoaded(data))})
